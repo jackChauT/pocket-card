@@ -296,6 +296,10 @@ const en = {
     copyright: (year: number) => `© ${year} ${STUDIO_NAME} · Illustrated in Hong Kong`,
   },
   notFound: { h1: 'Page not found', body: 'This page doesn’t exist or has moved.', home: 'Back to home' },
+  preview: {
+    checkout: 'This is a preview of the shop. Checkout opens soon.',
+    upload: 'Photo upload isn’t available in this preview. Choose Send on WhatsApp instead.',
+  },
   // Server messages → customer copy. English falls through to the server's own text.
   serverErrors: {} as Record<string, string>,
   email: {
@@ -609,6 +613,10 @@ const zh: Dict = {
     copyright: (year) => `© ${year} ${STUDIO_NAME} · 香港繪製`,
   },
   notFound: { h1: '找不到頁面', body: '這個頁面不存在或已移除。', home: '返回主頁' },
+  preview: {
+    checkout: '這是網店預覽版，結帳功能即將開放。',
+    upload: '預覽版暫不支援上載相片，請改選經 WhatsApp 傳送。',
+  },
   serverErrors: {
     'Your cart is empty': '購物車是空的。',
     'Enter a valid email': '請輸入有效的電郵地址。',

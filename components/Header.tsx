@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { STUDIO_NAME } from '@/lib/catalog';
+import { PREVIEW, STUDIO_NAME } from '@/lib/catalog';
 import { useCart } from '@/lib/cart';
 import { useT } from '@/lib/i18n-client';
 import LanguageSwitch from './LanguageSwitch';
@@ -24,7 +24,7 @@ export default function Header() {
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden><path d="M4 8 H20" /><path d="M4 16 H20" /></svg>
         </summary>
         <nav aria-label={t.nav.main} className="absolute inset-x-0 top-full z-20 flex flex-col border-b border-line bg-bg px-5 py-2">
-          {[...nav, { href: href('/account'), label: t.nav.account }].map((n) => (
+          {[...nav, ...(PREVIEW ? [] : [{ href: href('/account'), label: t.nav.account }])].map((n) => (
             <Link key={n.href} href={n.href} className="link flex min-h-12 items-center text-base">{n.label}</Link>
           ))}
           <LanguageSwitch className="min-h-12 text-base" />
@@ -40,7 +40,7 @@ export default function Header() {
 
       <div className="flex items-center md:gap-6">
         <LanguageSwitch className="hidden md:flex" />
-        <Link href={href('/account')} className="link hidden text-[15px] md:inline">{t.nav.account}</Link>
+        {!PREVIEW && <Link href={href('/account')} className="link hidden text-[15px] md:inline">{t.nav.account}</Link>}
         <Link href={href('/cart')} aria-label={t.nav.cartAria(count)} className="link relative flex size-11 items-center justify-center text-[15px] md:w-auto md:gap-2 md:pl-2 md:pr-1">
           <BagIcon />
           <span className="hidden md:inline" aria-hidden>{t.nav.cart(count)}</span>

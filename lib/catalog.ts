@@ -6,6 +6,11 @@ export const STUDIO_NAME = 'Studio Name'; // placeholder
 export const WHATSAPP_NUMBER = '852XXXXXXXX'; // placeholder: digits only, for wa.me
 export const WHATSAPP_DISPLAY = '+852 [your WhatsApp number]'; // placeholder
 
+/** Browse-only build for GitHub Pages: no checkout, upload or accounts. */
+export const PREVIEW = process.env.NEXT_PUBLIC_PREVIEW === '1';
+// next/image doesn't add basePath to string srcs, so public files need it by hand.
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export type Variant = 'ready' | 'personalised';
 
 export const product = {
@@ -13,7 +18,7 @@ export const product = {
   name: 'Christmas Market', // placeholder
   basePriceHKD: 4500, // placeholder
   personalisationFeeHKD: 3000, // placeholder
-  images: { ready: '/christmas-card.jpg', personalised: '/christmas-card-personalised.jpg' },
+  images: { ready: `${BASE_PATH}/christmas-card.jpg`, personalised: `${BASE_PATH}/christmas-card-personalised.jpg` },
   imageSize: { width: 1054, height: 1492 },
 } as const;
 

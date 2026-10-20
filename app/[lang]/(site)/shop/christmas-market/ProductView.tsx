@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { CardImage, ChatIcon, Stepper, UploadIcon } from '@/components/ui';
 import { addLine } from '@/lib/cart';
-import { hkd, NOTES_MAX, product, unitPrice, WHATSAPP_DISPLAY, whatsappLink, type CartLine, type Variant } from '@/lib/catalog';
+import { hkd, NOTES_MAX, PREVIEW, product, unitPrice, WHATSAPP_DISPLAY, whatsappLink, type CartLine, type Variant } from '@/lib/catalog';
 import { serverError } from '@/lib/dict';
 import { useT } from '@/lib/i18n-client';
 
@@ -35,6 +35,7 @@ export default function ProductView() {
     const file = e.target.files?.[0];
     if (!file) return;
     setError('');
+    if (PREVIEW) return setPhoto({ status: 'error', message: t.preview.upload });
     if (file.size > MAX_PHOTO_BYTES) return setPhoto({ status: 'error', message: p.tooBig });
     setPhoto({ status: 'uploading', name: file.name });
     try {

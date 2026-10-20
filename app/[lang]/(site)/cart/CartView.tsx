@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { LockIcon, Stepper, Thumb } from '@/components/ui';
 import { removeLine, updateLine, useCart } from '@/lib/cart';
-import { hkd, product, unitPrice } from '@/lib/catalog';
+import { hkd, PREVIEW, product, unitPrice } from '@/lib/catalog';
 import { useT } from '@/lib/i18n-client';
 
 export default function CartView() {
@@ -55,7 +55,9 @@ export default function CartView() {
           <aside aria-label={c.summary} className="flex flex-col gap-5 bg-panel p-6 md:p-8">
             <div className="flex justify-between text-base"><span>{c.subtotal}</span><span>{hkd(subtotal)}</span></div>
             <div className="flex justify-between text-sm text-muted"><span>{c.shipping}</span><span>{c.calculated}</span></div>
-            <Link href={href('/checkout')} className="btn btn-primary mt-2 h-14">{c.checkout}</Link>
+            {PREVIEW
+              ? <p role="status" className="mt-2 border border-line-input p-4 text-center text-sm leading-relaxed text-text-2">{t.preview.checkout}</p>
+              : <Link href={href('/checkout')} className="btn btn-primary mt-2 h-14">{c.checkout}</Link>}
             <div className="flex items-center justify-center gap-2 text-[13px] text-muted">
               <LockIcon size={14} /><span>{c.secure}</span>
             </div>

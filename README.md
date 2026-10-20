@@ -36,9 +36,23 @@ The shop pages work without keys. Accounts, upload, checkout and admin need them
    - Verify your domain and set `RESEND_API_KEY` and `EMAIL_FROM`.
 4. **Admin**
    - Put studio emails in `ADMIN_EMAILS`. Sign in at `/account`, then open `/admin`.
-5. **Deploy (Vercel)**
-   - Set the same env vars, with `SITE_URL` set to your domain.
-   - Add a Stripe webhook for `checkout.session.completed` and `checkout.session.async_payment_succeeded`.
+5. **Deploy**: see Hosting below.
+
+## Hosting
+
+**Vercel: the real shop.** Vercel runs everything: checkout, uploads, accounts and admin.
+1. At vercel.com, choose Add New → Project and import this GitHub repo. Vercel detects Next.js; leave the defaults.
+2. Add every variable from `.env.example`, with `SITE_URL` set to the live address (e.g. `https://pocket-card.vercel.app`, or your own domain).
+3. Deploy. Every later push to `main` redeploys automatically.
+4. Update the external services to the live address:
+   - Supabase Auth: Site URL and Redirect URLs.
+   - Stripe: a webhook endpoint at `SITE_URL/api/stripe/webhook` for `checkout.session.completed` and `checkout.session.async_payment_succeeded`. Put its signing secret in `STRIPE_WEBHOOK_SECRET`.
+5. Note: Vercel's free Hobby plan is for non-commercial use. A shop taking payments needs the Pro plan.
+
+**GitHub Pages: browse-only preview.** `.github/workflows/pages.yml` builds a static copy on every push to `main`, using `scripts/build-preview.sh`.
+- It includes home, shop, product and cart, in both languages.
+- Pages can't run server code, so checkout, photo upload, accounts and admin are left out. The cart says checkout opens soon.
+- Enable it once in the repo: Settings → Pages → Source: GitHub Actions.
 
 ## Order flow
 
