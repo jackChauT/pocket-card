@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #f6f2ec;
+  --color-surface: #fbf8f3;
+  --color-panel: #efe8de;
+  --color-tile: #ece5da;
+  --color-tile-deep: #e8dfd2;
+  --color-photo: #e4dbce;
+  --color-line: #e4ddd3;
+  --color-line-input: #d6cec2;
+  --color-ink: #211e1a;
+  --color-ink-hover: #3b342d;
+  --color-text-2: #4a443d;
+  --color-soft: #5e574f;
+  --color-muted: #6a6259;
+  --color-accent: #8c4a30;
+  --color-mark: #d23b2a;
+  --color-kraft: #cfae85;
+}
+
+@theme inline {
+  /* Latin glyphs use the brand fonts; Chinese falls through to Noto Serif TC / the system CJK sans. */
+  --font-serif: var(--font-instrument), var(--font-serif-tc), 'Songti TC', Georgia, serif;
+  --font-sans: var(--font-figtree), 'PingFang HK', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  button:not(:disabled) { cursor: pointer; }
+}
+
+@layer components {
+  .eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+  @media (min-width: 48rem) { .eyebrow { font-size: 13px; } }
+  .display { font-family: var(--font-serif); font-weight: 400; line-height: 1; letter-spacing: -0.01em; }
+
+  .link { color: var(--color-ink); text-decoration: none; transition: color 0.2s ease; }
+  .link:hover { color: var(--color-accent); }
+  .arrow { display: inline-block; transition: transform 0.25s ease; }
+  .link:hover .arrow, .tile:hover .arrow { transform: translateX(4px); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    height: 52px; padding: 0 30px; border-radius: 2px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary { background: var(--color-ink); color: var(--color-bg); }
+  .btn-primary:hover:not(:disabled) { background: var(--color-ink-hover); }
+  .btn-primary:disabled { opacity: 0.55; }
+  .btn-secondary { border: 1px solid var(--color-ink); color: var(--color-ink); }
+  .btn-secondary:hover { background: var(--color-ink); color: var(--color-bg); }
+
+  .field {
+    width: 100%; height: 52px; padding: 0 16px; border: 1px solid var(--color-line-input); border-radius: 2px;
+    background: var(--color-surface); font: inherit; font-size: 16px; color: var(--color-ink);
+    transition: border-color 0.2s ease;
+  }
+  select.field { padding: 0 12px; }
+  textarea.field { height: auto; padding: 14px 16px; font-size: 15px; line-height: 1.5; resize: vertical; }
+  .field:focus { border-color: var(--color-ink); outline: none; }
+  .label { font-size: 14px; font-weight: 500; }
+
+  .opt {
+    display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 14px 20px;
+    border: 1px solid var(--color-line-input); border-radius: 2px; cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .opt:hover { border-color: #8f877c; }
+  .opt:has(input:checked) { border-color: var(--color-ink); background: var(--color-surface); }
+  .opt input, .check { width: 18px; height: 18px; margin: 0; flex-shrink: 0; accent-color: var(--color-ink); }
+
+  .art { background: #fbf8f2; box-shadow: 0 1px 1px rgba(33, 30, 26, 0.06), 0 16px 34px -12px rgba(33, 30, 26, 0.28); }
+  .tile .tile-art { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .tile:hover .tile-art { transform: translateY(-6px) rotate(-1deg); }
+
+  .ring-mark { width: 12px; height: 12px; border-radius: 999px; border: 1.5px solid var(--color-mark); flex-shrink: 0; }
+
+  .reveal { animation: reveal 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @keyframes reveal { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  .step { transition: background-color 0.2s ease; }
+  .step:hover:not(:disabled) { background: var(--color-tile); }
+  .step:disabled { color: #b5ada2; }
+
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details .plus { transition: transform 0.25s ease; }
+  details[open] .plus { transform: rotate(45deg); }
+  details[open] .chev { transform: rotate(180deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Traditional Chinese typography. Unlayered, so it outranks Tailwind utilities on the same element. */
+/* Chinese needs more leading and no negative tracking. */
+:lang(zh-Hant-HK) .display, :lang(zh-Hant-HK) h1, :lang(zh-Hant-HK) h2 { line-height: 1.25; letter-spacing: 0.02em; }
+:lang(zh-Hant-HK) .eyebrow { letter-spacing: 0.08em; }
+/* Break Chinese headings at punctuation (，。), not mid-phrase; still wrap if a phrase can't fit. */
+:lang(zh-Hant-HK) :is(h1, h2, .display) { word-break: keep-all; overflow-wrap: anywhere; }
+/* Full-width glyphs read larger than Latin at the same size. */
+:lang(zh-Hant-HK) .hero-title { font-size: 40px; }
+@media (min-width: 48rem) { :lang(zh-Hant-HK) .hero-title { font-size: clamp(36px, 3.6vw, 60px); } }

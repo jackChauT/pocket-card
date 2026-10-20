@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site header</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Figtree:wght@400;500;600&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<header style="width: 100%; height: 72px; box-sizing: border-box; padding: 0 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E4DDD3; background: #F6F2EC; font-family: 'Figtree', system-ui, sans-serif; color: #211E1A">
+<div style="display: flex; align-items: center; gap: 64px">
+<a href="Main.dc.html" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1; color: #211E1A; text-decoration: none; letter-spacing: -0.01em">Studio Name</a>
+<nav aria-label="Main" style="display: flex; gap: 36px; font-size: 15px">
+<a href="Shop.dc.html" class="nav" style="color: #211E1A; text-decoration: none">Shop</a>
+<a href="Main.dc.html" class="nav" style="color: #211E1A; text-decoration: none">About</a>
+</nav>
+</div>
+<div style="display: flex; align-items: center; gap: 4px; font-size: 15px">
+<button aria-label="Search" class="nav" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: none; border: none; color: #211E1A; cursor: pointer; padding: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16 L20.5 20.5"></path></svg>
+</button>
+<a href="Cart.dc.html" class="nav" style="height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 4px 0 8px; color: #211E1A; text-decoration: none">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M5 8 H19 L18 20 H6 Z"></path><path d="M9 8 V6.5 a3 3 0 0 1 6 0 V8"></path></svg>
+<span>Cart (3)</span>
+</a>
+</div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":72}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

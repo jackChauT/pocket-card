@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Order confirmed</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Figtree:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F6F2EC}
+a{color:#211E1A}a:hover{color:#8C4A30}
+.nav{transition:color .2s ease}.nav:hover{color:#8C4A30 !important}
+.btn{transition:background-color .2s ease,color .2s ease}
+.btn-secondary:hover{background:#211E1A !important;color:#F6F2EC !important}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8C4A30;outline-offset:3px}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1780px; display: flex; flex-direction: column; background: #F6F2EC; font-family: 'Figtree', system-ui, sans-serif; color: #211E1A; overflow: hidden">
+<dc-import name="Header" hint-size="100%,72px"></dc-import>
+<main style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; padding: 112px 56px 140px">
+<div style="width: 920px; display: flex; flex-direction: column; gap: 64px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+<div style="width: 56px; height: 56px; border-radius: 999px; border: 1px solid #8C4A30; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8C4A30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>
+</div>
+<div style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #6A6259">Order #1048 · Paid</div>
+<h1 style="margin: 0; max-width: 780px; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1.05; letter-spacing: -0.01em; text-wrap: balance">Thank you — your card is on its way to becoming something special.</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A443D">A confirmation has been sent to <strong style="font-weight: 500; color: #211E1A">sam@example.com</strong>.</p>
+</div>
+
+<section aria-labelledby="next-title" style="display: flex; flex-direction: column; gap: 28px; padding: 40px 48px; background: #EFE8DE">
+<h2 id="next-title" style="margin: 0; font-size: 15px; font-weight: 500">What happens next</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0">
+<li style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center"><span style="width: 14px; height: 14px; border-radius: 999px; background: #8C4A30; flex-shrink: 0"></span><span style="flex-grow: 1; height: 1px; background: #CFC5B7"></span></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding-right: 16px"><span style="font-size: 15px; font-weight: 500">Order received</span><span style="font-size: 13px; color: #6A6259">Today</span></div>
+</li>
+<li style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 1px solid #8F877C; flex-shrink: 0"></span><span style="flex-grow: 1; height: 1px; background: #CFC5B7"></span></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding-right: 16px"><span style="font-size: 15px">Preparing &amp; printing</span><span style="font-size: 13px; color: #6A6259">Your characters are drawn, then printed</span></div>
+</li>
+<li style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 1px solid #8F877C; flex-shrink: 0"></span><span style="flex-grow: 1; height: 1px; background: #CFC5B7"></span></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding-right: 16px"><span style="font-size: 15px">Packed</span><span style="font-size: 13px; color: #6A6259">With its envelope and sleeve</span></div>
+</li>
+<li style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 1px solid #8F877C; flex-shrink: 0"></span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 15px">Shipped</span><span style="font-size: 13px; color: #6A6259">From Hong Kong</span></div>
+</li>
+</ol>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #4A443D">We’ll send you another email with tracking details as soon as your order has been dispatched.</p>
+</section>
+
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: start">
+<section aria-labelledby="items-title" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="items-title" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px">Your order</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #E4DDD3">
+<li style="display: grid; grid-template-columns: 88px minmax(0, 1fr) auto; gap: 20px; padding: 24px 0; border-bottom: 1px solid #E4DDD3">
+<div style="width: 88px; aspect-ratio: 4 / 5; background: #ECE5DA; display: flex; align-items: center; justify-content: center"><img src="../assets/christmas-card-personalised.jpg" alt="" style="width: 62%; height: auto; background: #FBF8F2"></div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.5"><span style="font-size: 16px; font-weight: 500">Christmas Market</span><span style="color: #6A6259">Personalised · Qty 1</span><span>Photo: lee-family-2026.jpg</span><span style="color: #4A443D">Notes: “Us two by the stall; Mum and Dad at the café; Theo and me at the front”</span></div>
+<span style="font-size: 15px">HK$75</span>
+</li>
+<li style="display: grid; grid-template-columns: 88px minmax(0, 1fr) auto; gap: 20px; padding: 24px 0; border-bottom: 1px solid #E4DDD3">
+<div style="width: 88px; aspect-ratio: 4 / 5; background: #ECE5DA; display: flex; align-items: center; justify-content: center"><img src="../assets/christmas-card.jpg" alt="" style="width: 62%; height: auto; background: #FBF8F2"></div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px"><span style="font-size: 16px; font-weight: 500">Christmas Market</span><span style="color: #6A6259">Ready-made · Qty 2</span></div>
+<span style="font-size: 15px">HK$90</span>
+</li>
+</ul>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<div style="display: flex; justify-content: space-between"><span style="color: #4A443D">Subtotal</span><span>HK$165</span></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #4A443D">Shipping</span><span>HK$30</span></div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; border-top: 1px solid #E4DDD3"><span style="font-size: 16px; font-weight: 500">Total paid</span><span style="font-size: 20px">HK$195</span></div>
+</div>
+</section>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 22px; font-size: 14px; line-height: 1.6; padding-top: 58px">
+<div><dt style="color: #6A6259">Order number</dt><dd style="margin: 0">#1048</dd></div>
+<div><dt style="color: #6A6259">Email</dt><dd style="margin: 0">sam@example.com</dd></div>
+<div><dt style="color: #6A6259">Shipping address</dt><dd style="margin: 0">Sam Lee<br>Flat 12B, Harbour View Mansion<br>8 Sample Road, Sheung Wan<br>Hong Kong</dd></div>
+<div><dt style="color: #6A6259">Shipping method</dt><dd style="margin: 0">SF Express courier</dd></div>
+<div><dt style="color: #6A6259">Payment</dt><dd style="margin: 0">Paid securely via Stripe</dd></div>
+</dl>
+</div>
+
+<div style="display: flex; justify-content: center">
+<a href="Shop.dc.html" class="btn btn-secondary" style="display: flex; align-items: center; height: 52px; padding: 0 30px; border: 1px solid #211E1A; color: #211E1A; text-decoration: none; font-size: 15px; font-weight: 500; border-radius: 2px">Continue browsing</a>
+</div>
+</div>
+</main>
+<dc-import name="Footer" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1780}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Checkout</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Figtree:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F6F2EC}
+a{color:#211E1A}a:hover{color:#8C4A30}
+.nav{transition:color .2s ease}.nav:hover{color:#8C4A30 !important}
+.btn{transition:background-color .2s ease}
+.btn-primary:hover{background:#3B342D !important}
+.field{transition:border-color .2s ease}.field:focus{border-color:#211E1A !important;outline:none}
+.opt{transition:border-color .2s ease}.opt:hover{border-color:#8F877C !important}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #8C4A30;outline-offset:3px}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1720px; display: flex; flex-direction: column; background: #F6F2EC; font-family: 'Figtree', system-ui, sans-serif; color: #211E1A; overflow: hidden">
+<header style="height: 72px; box-sizing: border-box; padding: 0 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E4DDD3">
+<a href="Main.dc.html" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1; color: #211E1A; text-decoration: none">Studio Name</a>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4A443D">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"></path></svg>
+<span>Secure checkout</span>
+</div>
+</header>
+<main style="flex-grow: 1; display: grid; grid-template-columns: minmax(0, 1fr) 520px">
+<div style="display: flex; flex-direction: column; gap: 48px; padding: 56px 96px 96px 152px">
+<ol aria-label="Checkout progress" style="margin: 0; padding: 0; list-style: none; display: flex; align-items: center; gap: 14px; font-size: 13px; color: #6A6259">
+<li><a href="Cart.dc.html" class="nav" style="color: #6A6259">Cart</a></li><li aria-hidden="true">—</li>
+<li style="color: #211E1A; font-weight: 500" aria-current="step">Details &amp; shipping</li><li aria-hidden="true">—</li>
+<li>Payment</li><li aria-hidden="true">—</li>
+<li>Confirmation</li>
+</ol>
+
+<section aria-labelledby="c-contact" style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 id="c-contact" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px">Contact</h2>
+<span style="font-size: 13px; color: #6A6259">For your order updates</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="c-email" style="font-size: 14px; font-weight: 500">Email</label>
+<input id="c-email" class="field" type="email" autocomplete="email" value="sam@example.com" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A">
+</div>
+<label for="c-news" style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: #4A443D; min-height: 44px">
+<input id="c-news" type="checkbox" style="width: 18px; height: 18px; margin: 0; accent-color: #211E1A">
+Send me a little note from the studio now and then
+</label>
+</section>
+
+<section aria-labelledby="c-ship" style="display: flex; flex-direction: column; gap: 16px">
+<h2 id="c-ship" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px">Shipping address</h2>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-country" style="font-size: 14px; font-weight: 500">Country / region</label>
+<select id="c-country" class="field" autocomplete="country" value="{{country}}" onChange="{{onCountry}}" style="height: 52px; box-sizing: border-box; padding: 0 12px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"><option value="HK">Hong Kong</option><option value="MO">Macau</option><option value="TW">Taiwan</option><option value="SG">Singapore</option><option value="JP">Japan</option><option value="AU">Australia</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="OTHER">Other country</option></select>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-first" style="font-size: 14px; font-weight: 500">First name</label><input id="c-first" class="field" type="text" autocomplete="given-name" value="Sam" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-last" style="font-size: 14px; font-weight: 500">Last name</label><input id="c-last" class="field" type="text" autocomplete="family-name" value="Lee" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-addr" style="font-size: 14px; font-weight: 500">Flat, floor, building</label><input id="c-addr" class="field" type="text" autocomplete="address-line1" value="Flat 12B, Harbour View Mansion" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-addr2" style="font-size: 14px; font-weight: 500">Street address</label><input id="c-addr2" class="field" type="text" autocomplete="address-line2" value="8 Sample Road" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+<sc-if value="{{isHK}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-area" style="font-size: 14px; font-weight: 500">Area</label><input id="c-area" class="field" type="text" autocomplete="address-level3" value="Sheung Wan" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-dist" style="font-size: 14px; font-weight: 500">Region</label><select id="c-dist" class="field" autocomplete="address-level1" style="height: 52px; box-sizing: border-box; padding: 0 12px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"><option>Hong Kong Island</option><option>Kowloon</option><option>New Territories</option><option>Outlying Islands</option></select></div>
+</div>
+</sc-if>
+<sc-if value="{{isIntl}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-city" style="font-size: 14px; font-weight: 500">City / state</label><input id="c-city" class="field" type="text" autocomplete="address-level2" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-post" style="font-size: 14px; font-weight: 500">Postcode</label><input id="c-post" class="field" type="text" autocomplete="postal-code" style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+</div>
+<span style="font-size: 13px; line-height: 1.5; color: #6A6259">International orders may be subject to import duties or taxes charged on arrival.</span>
+</sc-if>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="c-phone" style="font-size: 14px; font-weight: 500">Phone <span style="font-weight: 400; color: #6A6259">(for the courier)</span></label><input id="c-phone" class="field" type="tel" autocomplete="tel" value="+852 " style="height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+</section>
+
+<section aria-labelledby="c-method" style="display: flex; flex-direction: column; gap: 16px">
+<h2 id="c-method" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px">Shipping method</h2>
+<fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 12px">
+<legend style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Shipping method</legend>
+<sc-for list="{{methods}}" as="m" hint-placeholder-count="2">
+<label class="opt" style="{{m.style}}">
+<input type="radio" name="ship" checked="{{m.on}}" onChange="{{m.pick}}" style="width: 18px; height: 18px; margin: 0; accent-color: #211E1A">
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">{{m.label}}</span><span style="font-size: 13px; color: #6A6259">{{m.note}}</span></span>
+<span style="font-size: 15px">{{m.price}}</span>
+</label>
+</sc-for>
+</fieldset>
+</section>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<a href="Confirmation.dc.html" class="btn btn-primary" style="height: 58px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #211E1A; color: #F6F2EC; text-decoration: none; font-size: 15px; font-weight: 500; border-radius: 2px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"></path></svg>
+Continue to secure payment
+</a>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6A6259; text-align: center">You’ll complete payment on Stripe’s secure checkout. We never see or store your card details.</p>
+</div>
+</div>
+
+<aside aria-label="Order summary" style="display: flex; flex-direction: column; gap: 24px; padding: 104px 56px 96px; background: #EFE8DE; border-left: 1px solid #E4DDD3">
+<h2 style="margin: 0; font-size: 15px; font-weight: 500">Order summary</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 20px">
+<li style="display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 16px; align-items: start">
+<div style="position: relative; width: 72px; aspect-ratio: 4 / 5; background: #E4DBCE; display: flex; align-items: center; justify-content: center"><img src="../assets/christmas-card-personalised.jpg" alt="" style="width: 62%; height: auto; background: #FBF8F2"></div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px"><span style="font-weight: 500">Christmas Market</span><span style="color: #6A6259">Personalised · Qty 1</span><span style="color: #4A443D">Photo: lee-family-2026.jpg</span></div>
+<span style="font-size: 14px">HK$75</span>
+</li>
+<li style="display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 16px; align-items: start">
+<div style="width: 72px; aspect-ratio: 4 / 5; background: #E4DBCE; display: flex; align-items: center; justify-content: center"><img src="../assets/christmas-card.jpg" alt="" style="width: 62%; height: auto; background: #FBF8F2"></div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px"><span style="font-weight: 500">Christmas Market</span><span style="color: #6A6259">Ready-made · Qty 2</span></div>
+<span style="font-size: 14px">HK$90</span>
+</li>
+</ul>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid #D9D0C3; font-size: 14px">
+<div style="display: flex; justify-content: space-between"><span style="color: #4A443D">Subtotal</span><span>HK$165</span></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #4A443D">Shipping · {{methodName}}</span><span>{{shipPrice}}</span></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 20px; border-top: 1px solid #D9D0C3">
+<span style="font-size: 16px; font-weight: 500">Total</span>
+<span style="font-size: 22px"><span style="font-size: 13px; color: #6A6259">HKD </span>{{total}}</span>
+</div>
+<span style="font-size: 13px; color: #6A6259">Prices in Hong Kong dollars</span>
+</aside>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1720}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { country: 'HK', method: 'sf' };
+  }
+  renderVals() {
+    const money = (n) => 'HK$' + n;
+    const hk = this.state.country === 'HK';
+    const list = hk ? [
+      { id: 'sf', label: 'SF Express', note: 'Courier to your door · 1–2 working days after dispatch', cost: 30 },
+      { id: 'post', label: 'Hongkong Post', note: 'Local mail · 2–4 working days after dispatch', cost: 10 }
+    ] : [
+      { id: 'air', label: 'Hongkong Post Air Mail', note: 'Untracked · 7–21 working days after dispatch', cost: 60 },
+      { id: 'intl', label: 'Tracked international', note: 'Tracked courier · 4–8 working days after dispatch', cost: 160 }
+    ];
+    const cur = list.find((m) => m.id === this.state.method) || list[0];
+    const methods = list.map((m) => {
+      const on = m.id === cur.id;
+      return {
+        ...m, on, price: money(m.cost),
+        pick: () => this.setState({ method: m.id }),
+        style: 'display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 14px 20px; box-sizing: border-box; border: 1px solid ' + (on ? '#211E1A' : '#D6CEC2') + '; border-radius: 2px; cursor: pointer; background: ' + (on ? '#FBF8F3' : 'transparent')
+      };
+    });
+    return {
+      country: this.state.country, isHK: hk, isIntl: !hk,
+      onCountry: (e) => { const c = e.target.value; this.setState({ country: c, method: c === 'HK' ? 'sf' : 'air' }); },
+      methods, methodName: cur.label, shipPrice: money(cur.cost), total: money(165 + cur.cost)
+    };
+  }
+}
+</script>
+</body>
+</html>

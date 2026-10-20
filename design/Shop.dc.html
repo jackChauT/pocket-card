@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Figtree:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F6F2EC}
+a{color:#211E1A}a:hover{color:#8C4A30}
+.nav{transition:color .2s ease}.nav:hover{color:#8C4A30 !important}
+.link-arrow .arr{display:inline-block;transition:transform .25s ease}
+.link-arrow:hover .arr{transform:translateX(4px)}
+.tile .tile-art{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .tile-art{transform:translateY(-6px)}
+.tile:hover .tile-name{text-decoration:underline;text-underline-offset:4px}
+a:focus-visible,button:focus-visible{outline:2px solid #8C4A30;outline-offset:3px}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1780px; display: flex; flex-direction: column; background: #F6F2EC; font-family: 'Figtree', system-ui, sans-serif; color: #211E1A; overflow: hidden">
+<dc-import name="Header" hint-size="100%,72px"></dc-import>
+<main style="flex-grow: 1; display: flex; flex-direction: column; padding: 96px 56px 140px; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 16px; padding-bottom: 32px; border-bottom: 1px solid #E4DDD3">
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 72px; line-height: 1; letter-spacing: -0.02em">Shop</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5E574F">This season’s card, printed with care and posted from Hong Kong.</p>
+</div>
+<a href="Product.dc.html" class="tile" style="display: grid; grid-template-columns: 7fr 5fr; gap: 80px; align-items: end; color: #211E1A; text-decoration: none">
+<div style="height: 780px; background: #ECE5DA; display: flex; align-items: center; justify-content: center; overflow: hidden">
+<img class="tile-art" src="../assets/christmas-card.jpg" alt="Christmas Market card: a hand-drawn town square with a tall decorated tree, market stalls and families" style="width: 450px; height: auto; background: #FBF8F2; box-shadow: 0 1px 1px rgba(33,30,26,0.05), 0 16px 34px -12px rgba(33,30,26,0.28)">
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding-bottom: 8px">
+<span class="tile-name" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1">Christmas Market</span>
+<span style="font-size: 17px; color: #4A443D">From HK$45</span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #8C4A30">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 L8 19 L19 8 L16 5 L5 16 Z"></path><path d="M14 7 L17 10"></path></svg>
+Ready-made or personalised from your photo
+</span>
+<span class="link-arrow" style="margin-top: 16px; font-size: 15px; font-weight: 500">View the card <span class="arr">→</span></span>
+</div>
+</a>
+</main>
+<dc-import name="Footer" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1780}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

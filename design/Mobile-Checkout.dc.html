@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Checkout — mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Figtree:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F6F2EC}
+a{color:#211E1A}a:hover{color:#8C4A30}
+.field:focus{border-color:#211E1A !important;outline:none}
+@keyframes reveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.reveal{animation:reveal .3s cubic-bezier(.2,.7,.2,1) both}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #8C4A30;outline-offset:3px}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F6F2EC; font-family: 'Figtree', system-ui, sans-serif; color: #211E1A; overflow: hidden">
+<header style="height: 56px; flex-shrink: 0; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E4DDD3">
+<a href="Mobile-Home.dc.html" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; line-height: 1; color: #211E1A; text-decoration: none">Studio Name</a>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #4A443D"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"></path></svg>Secure checkout</span>
+</header>
+<div style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column">
+<button aria-expanded="{{openStr}}" onClick="{{toggle}}" style="flex-shrink: 0; min-height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; background: #EFE8DE; border: none; border-bottom: 1px solid #E4DDD3; font-family: inherit; font-size: 15px; color: #211E1A; cursor: pointer">
+<span style="display: flex; align-items: center; gap: 8px">{{toggleLabel}}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="{{chevron}}"><path d="M6 9 L12 15 L18 9"></path></svg></span>
+<span style="font-weight: 500">{{total}}</span>
+</button>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<div class="reveal" style="display: flex; flex-direction: column; gap: 16px; padding: 20px; background: #EFE8DE; border-bottom: 1px solid #E4DDD3; font-size: 14px">
+<div style="display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 12px"><div style="width: 56px; aspect-ratio: 4 / 5; background: #E4DBCE; display: flex; align-items: center; justify-content: center"><img src="../assets/christmas-card-personalised.jpg" alt="" style="width: 62%; height: auto; background: #FBF8F2"></div><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">Christmas Market</span><span style="color: #6A6259">Personalised · Qty 1</span><span style="color: #4A443D">Photo: lee-family-2026.jpg</span><a href="Mobile-Product.dc.html" style="color: #4A443D; font-size: 13px">Edit</a></div><span>HK$75</span></div>
+<div style="display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 12px"><div style="width: 56px; aspect-ratio: 4 / 5; background: #E4DBCE; display: flex; align-items: center; justify-content: center"><img src="../assets/christmas-card.jpg" alt="" style="width: 62%; height: auto; background: #FBF8F2"></div><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">Christmas Market</span><span style="color: #6A6259">Ready-made · Qty 2</span></div><span>HK$90</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 1px solid #D9D0C3"><div style="display: flex; justify-content: space-between"><span>Subtotal</span><span>HK$165</span></div><div style="display: flex; justify-content: space-between"><span>Shipping</span><span>{{shipPrice}}</span></div></div>
+</div>
+</sc-if>
+<div style="display: flex; flex-direction: column; gap: 32px; padding: 28px 20px 36px">
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 26px">Contact</h2>
+<label for="mc-email" style="font-size: 14px; font-weight: 500">Email</label>
+<input id="mc-email" class="field" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" style="height: 54px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px">
+</section>
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 26px">Shipping address</h2>
+<label for="mc-country" style="font-size: 14px; font-weight: 500">Country / region</label>
+<select id="mc-country" class="field" autocomplete="country" value="{{country}}" onChange="{{onCountry}}" style="height: 54px; box-sizing: border-box; padding: 0 12px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"><option value="HK">Hong Kong</option><option value="MO">Macau</option><option value="TW">Taiwan</option><option value="SG">Singapore</option><option value="JP">Japan</option><option value="AU">Australia</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="OTHER">Other country</option></select>
+<label for="mc-name" style="font-size: 14px; font-weight: 500">Full name</label>
+<input id="mc-name" class="field" type="text" autocomplete="name" style="height: 54px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A">
+<label for="mc-addr" style="font-size: 14px; font-weight: 500">Address</label>
+<input id="mc-addr" class="field" type="text" autocomplete="street-address" placeholder="Flat, floor, building, street" style="height: 54px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A">
+<sc-if value="{{isHK}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="mc-area" style="font-size: 14px; font-weight: 500">Area</label><input id="mc-area" class="field" type="text" autocomplete="address-level3" style="height: 54px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="mc-dist" style="font-size: 14px; font-weight: 500">Region</label><select id="mc-dist" class="field" autocomplete="address-level1" style="height: 54px; box-sizing: border-box; padding: 0 12px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"><option>Hong Kong Island</option><option>Kowloon</option><option>New Territories</option><option>Outlying Islands</option></select></div>
+</div>
+</sc-if>
+<sc-if value="{{isIntl}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="mc-city" style="font-size: 14px; font-weight: 500">City / state</label><input id="mc-city" class="field" type="text" autocomplete="address-level2" style="height: 54px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="mc-post" style="font-size: 14px; font-weight: 500">Postcode</label><input id="mc-post" class="field" type="text" autocomplete="postal-code" style="height: 54px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A"></div>
+</div>
+<span style="font-size: 13px; color: #6A6259">Import duties or taxes may apply on arrival.</span>
+</sc-if>
+<label for="mc-phone" style="font-size: 14px; font-weight: 500">Phone <span style="font-weight: 400; color: #6A6259">(for the courier)</span></label>
+<input id="mc-phone" class="field" type="tel" autocomplete="tel" inputmode="tel" value="+852 " style="height: 54px; box-sizing: border-box; padding: 0 16px; border: 1px solid #D6CEC2; border-radius: 2px; background: #FBF8F3; font-family: inherit; font-size: 16px; color: #211E1A">
+</section>
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 26px">Shipping method</h2>
+<sc-for list="{{methods}}" as="m" hint-placeholder-count="2">
+<label style="{{m.style}}">
+<input type="radio" name="mc-ship" checked="{{m.on}}" onChange="{{m.pick}}" style="width: 20px; height: 20px; margin: 0; accent-color: #211E1A">
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">{{m.label}}</span><span style="font-size: 13px; color: #6A6259">{{m.note}}</span></span>
+<span style="font-size: 15px">{{m.price}}</span>
+</label>
+</sc-for>
+</section>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6A6259">You’ll pay on Stripe’s secure checkout — Apple Pay, Google Pay and cards. We never see or store your card details.</p>
+</div>
+</div>
+<div style="flex-shrink: 0; padding: 12px 20px 20px; border-top: 1px solid #E4DDD3; background: #F6F2EC">
+<a href="Confirmation.dc.html" style="height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #211E1A; color: #F6F2EC; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 2px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"></path></svg>
+Pay {{total}} securely
+</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { country: 'HK', method: 'sf', open: false };
+  }
+  renderVals() {
+    const money = (n) => 'HK$' + n;
+    const hk = this.state.country === 'HK';
+    const list = hk ? [
+      { id: 'sf', label: 'SF Express', note: 'Courier · 1–2 working days', cost: 30 },
+      { id: 'post', label: 'Hongkong Post', note: 'Local mail · 2–4 working days', cost: 10 }
+    ] : [
+      { id: 'air', label: 'Hongkong Post Air Mail', note: 'Untracked · 7–21 working days', cost: 60 },
+      { id: 'intl', label: 'Tracked international', note: 'Tracked · 4–8 working days', cost: 160 }
+    ];
+    const cur = list.find((m) => m.id === this.state.method) || list[0];
+    const methods = list.map((m) => {
+      const on = m.id === cur.id;
+      return { ...m, on, price: money(m.cost), pick: () => this.setState({ method: m.id }),
+        style: 'display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 12px 16px; box-sizing: border-box; border: 1px solid ' + (on ? '#211E1A' : '#D6CEC2') + '; border-radius: 2px; background: ' + (on ? '#FBF8F3' : 'transparent') };
+    });
+    const open = this.state.open;
+    return {
+      country: this.state.country, isHK: hk, isIntl: !hk,
+      onCountry: (e) => { const c = e.target.value; this.setState({ country: c, method: c === 'HK' ? 'sf' : 'air' }); },
+      methods, shipPrice: money(cur.cost), total: money(165 + cur.cost),
+      open, openStr: open ? 'true' : 'false',
+      toggle: () => this.setState({ open: !open }),
+      toggleLabel: open ? 'Hide order summary' : 'Show order summary · 3 cards',
+      chevron: open ? 'transform: rotate(180deg)' : 'transform: none'
+    };
+  }
+}
+</script>
+</body>
+</html>
