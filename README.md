@@ -53,6 +53,7 @@ The shop pages work without keys. Accounts, upload, checkout and admin need them
 - It includes home, shop, product and cart, in both languages.
 - Pages can't run server code, so checkout, photo upload, accounts and admin are left out. The cart says checkout opens soon.
 - Enable it once in the repo: Settings → Pages → Source: GitHub Actions.
+- Live at https://pocket.mistysnow.hk/ (DNS: CNAME `pocket` → `jackchaut.github.io`). The workflow reads the base path from the Pages settings, so it also works on the github.io address if the domain is removed.
 
 ## Order flow
 

@@ -26,9 +26,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      # base_path is "" on a custom domain (pocket.mistysnow.hk) and "/pocket-card" on github.io.
+      - id: pages
+        uses: actions/configure-pages@v5
       - run: scripts/build-preview.sh
         env:
-          BASE_PATH: /${{ github.event.repository.name }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
