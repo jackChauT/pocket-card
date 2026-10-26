@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { product, STUDIO_NAME } from '@/lib/catalog';
 import { getT } from '@/lib/i18n-server';
+import { InkRule, Skyline } from './Ink';
 
 export default async function Footer() {
   const { t, href } = await getT();
@@ -13,8 +14,13 @@ export default async function Footer() {
   ];
 
   return (
-    <footer className="mx-auto flex w-full max-w-[1440px] flex-col gap-9 border-t border-line px-5 pb-8 pt-12 md:gap-20 md:px-14 md:pb-10 md:pt-[88px]">
-      <div className="grid gap-9 md:grid-cols-[5fr_7fr] md:gap-20">
+    <footer className="mx-auto flex w-full max-w-[1440px] flex-col gap-9 px-5 pb-8 md:gap-20 md:px-14 md:pb-10">
+      <div>
+        {/* the town from the card, in one ink line, standing on the rule */}
+        <Skyline className="-mb-[3px]" />
+        <InkRule />
+      </div>
+      <div className="grid gap-9 pt-3 md:grid-cols-[5fr_7fr] md:gap-20 md:pt-10">
         {/* placeholder: newsletter form has no provider yet; wire it to your email tool. */}
         <form className="flex max-w-[460px] flex-col gap-3 md:gap-4">
           <h2 className="display text-[28px] leading-[1.1] md:text-4xl">{f.title}</h2>

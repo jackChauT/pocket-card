@@ -50,10 +50,11 @@ const en = {
   variantNote: { ready: 'The illustration exactly as drawn', personalised: 'Same design, with selected characters drawn from your photo' },
   home: {
     eyebrow: 'Original illustrated greeting cards · Hong Kong',
-    h1: 'Cards made to hold a little story.',
+    h1: ['Cards made to hold a little ', 'story', '.'] as [string, string, string], // middle part gets the red pen circle
     lead: 'Original illustrated cards, designed with care and printed for the people and moments that matter.',
     cta: 'Shop Card',
     heroCaption: 'Christmas Market — ready-made or personalised',
+    heroNote: 'drawn by hand, line by line',
     howItWorks: 'How it works',
     steps: [
       ['Ready-made or personalised', 'Send the card just as it is, or have some of the characters drawn as your people.'],
@@ -65,6 +66,10 @@ const en = {
       ['Ready-made', 'The illustration exactly as drawn.'],
       ['Personalised', 'The same design, with a few characters redrawn from your photo.'],
     ] as Pair[],
+    closerEyebrow: 'Look closer',
+    closerTitle: 'Every corner holds something to find.',
+    closerLead: 'Small scenes are tucked all over the card. Take your time with it.',
+    closer: ['a quiet bench by the fountain', 'a star on top', 'presents piled high'],
     storyEyebrow: 'The studio',
     storyTitle: 'Illustrated with a story in mind.',
     story: [
@@ -367,10 +372,11 @@ const zh: Dict = {
   variantNote: { ready: '按原稿印製的插畫', personalised: '同一設計，指定角色按你的相片繪畫' },
   home: {
     eyebrow: '原創插畫賀卡 · 香港',
-    h1: '一張賀卡，載著一個小故事。',
+    h1: ['一張賀卡，載著一個', '小故事', '。'],
     lead: '原創插畫賀卡，用心設計和印製，送給重要的人，記下重要的時刻。',
     cta: '選購賀卡',
     heroCaption: '聖誕市集 — 現成款或個人化',
+    heroNote: '一筆一劃，親手繪畫',
     howItWorks: '訂購流程',
     steps: [
       ['現成款或個人化', '直接寄出原圖，或把部分角色畫成你身邊的人。'],
@@ -382,6 +388,10 @@ const zh: Dict = {
       ['現成款', '按原稿印製的插畫。'],
       ['個人化', '同一設計，部分角色按你的相片重新繪畫。'],
     ],
+    closerEyebrow: '細看',
+    closerTitle: '每個角落，都值得細看。',
+    closerLead: '卡上藏著許多小場景，慢慢看。',
+    closer: ['噴水池旁的長椅', '樹頂的星星', '堆得高高的禮物'],
     storyEyebrow: '工作室',
     storyTitle: '每幅畫，都藏著一個故事。',
     story: [
